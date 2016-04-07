@@ -5,6 +5,9 @@ plu前端软件包下载
 打开puTTYgen点击Generate生成key
 打开pageant点击AddKey添加上一步生成的key
 
+git的一个配置可以保存http的密码,在家拉代码的时候有用.
+git config --global credential.helper store
+
 前端新建项目时候目录结构
 sdk
 src
