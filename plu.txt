@@ -1,5 +1,5 @@
 plu前端软件包下载
-链接：http://pan.baidu.com/s/1dEPCtjz
+链接：http://
 
 关于SVNGit
 打开puTTYgen点击Generate生成key
@@ -206,7 +206,7 @@ src
 	goog.dom.contains(a, b);
 
 
-	<2> goog.style
+  <2> goog.style
 
 	获取ele元素的宽高包含padding/border		
 	goog.style.getSize(ele).width/height;
@@ -224,7 +224,7 @@ src
 	goog.style.setHeight(ele, 100)，goog.style.setWidth(ele, 100)
 
 
-	<3> goog.ui.Dialog
+  <3> goog.ui.Dialog
 
 	创建一个dialog弹窗						
 	var dialog = new goog.ui.Dialog();
@@ -242,7 +242,7 @@ src
 	dialog.setHasTitleCloseButton(true/false)
 
 
-	<4> goog.fx.css3
+  <4> goog.fx.css3
 
 	设置ele元素2秒完成显示过程				
 	goog.fx.css3.fadeIn(ele, 2).play();//fadeOut
@@ -324,11 +324,11 @@ src
 	<2> 打开path.js里面的格式如下，对象的形式：
 		{
 	    	'http://star.longzhu.com/.*/qqgameapp': '../../lg/star/live/index.html',   //  .*是匹配任意字符
-	    	'http://v.longzhu.com/qqgame': '../../src/app/video/video.html'			   //   前面是线上地址，后面是自己本地的文件路径
+	    	'http://v.longzhu.com/qqgame': '../../src/app/video/video.html'		 //   前面是线上地址，后面是自己本地的文件路径
 		}
 	<3> 利用Cygw到sdk/proton-proxy下方，并运行 node server.js 
-			或者直接运行server.bat文件
-			这时候浏览器打开http://star.longzhu.com/lpl/qqgameapp/，绿色代表是替换掉的文件，白色是没有被替换的
+		或者直接运行server.bat文件
+		这时候浏览器打开http://star.longzhu.com/lpl/qqgameapp/，绿色代表是替换掉的文件，白色是没有被替换的
 
 
 	3.vorlon.js远程调试，测试工具，不支持IE
