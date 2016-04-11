@@ -442,6 +442,7 @@ function testLoadThen() {
   asyncTestCase.waitForAsync(); //测试异步的程序
 }
 
-
+//生成时间戳
+new Date().getTime().toString(36);
 
 
