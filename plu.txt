@@ -227,8 +227,10 @@ src
 	goog.style.getPaddingBox(ele).top/right/bottom/left;
 
 	设置元素的高度和宽度					
-	goog.style.setHeight(ele, 100)，goog.style.setWidth(ele, 100)
-
+	goog.style.setHeight(ele, 100)，goog.style.setWidth(ele, 100);
+	
+	goog.style.setStyle(elem, 'position', 'absolute');
+	goog.style.getStyle(elem, 'position');
 
   <3> goog.ui.Dialog
 
@@ -314,8 +316,52 @@ src
 7. css3
 	-webkit-animation: myfirst 5s linear 2s infinite alternate;
 
+8. 事件监听：
+	//单个元素
+	var elem = goog.dom.getElement('my-ele');  
+	goog.events.listen(elem, goog.events.EventType.CLICK, handleClick);  
+	
+	// 多个元素
+	var elems = goog.dom.getElementsByClass('list-cell');
+	goog.array.forEach(elems, function(elem) {
+	  goog.events.listen(elem, goog.events.EventType.CLICK, handleClick);
+	});
+	
+9.关于增加删除class样式
+	var elem = goog.dom.getElement('my-ele');
+	goog.dom.classlist.add(elem, 'my-ele');
+	
+	var elem = goog.dom.getElement('my-ele');
+	goog.dom.classlist.remove(elem, 'my-ele');
+	
+	var elem = goog.dom.getElement('my-ele');
+	goog.dom.classlist.toggle(elem, 'my-ele');
+	
+	var elem = goog.dom.getElement('my-ele');
+	goog.style.setStyle(elem, 'position', 'absolute');
+	
+	var elem = goog.dom.getElement('my-ele');
+	goog.style.getStyle(elem, 'position');
+	
+10.数组操作
+	goog.array.forEach(arr, function(item, index) {});
 
-8.关于代理问题
+	goog.array.map(arr, function(item, index) {});
+	
+11.关于平台的登录
+window['LoginManager']['checkLogin'](success, failure);
+//success登录成功的函数，//登录失败的函数
+
+12.关于接口请求数据
+	goog.require('pt.api.JsonpApi');
+	
+	var data = {"page":0};
+	var jsonp = new JsonpApi('http://api.plu.cn');
+	jsonp.load(data).then(function(json) {
+		//自己的code
+	})
+	
+13.关于代理问题
 	1.设置host形式
 		比如线上首页地址是http://star.longzhu.com
 		host的设置是 127.0.0.1  star.longzhu.com
@@ -347,7 +393,7 @@ src
 
 
 
-9.关于单元测试
+14.关于单元测试
 
 例如 lg.star.redenvelope.ui.RedEnvelopeList(红包队列数据)
 首先在需要进行单元测试的js文件中，新建：
