@@ -1,0 +1,401 @@
+一：plu前端软件包下载
+链接：http://
+
+二：前端项目http://git.corp.plu.cn/
+
+三：关于SVNGit
+    打开puTTYgen点击Generate生成key
+    打开pageant点击AddKey添加上一步生成的key
+
+四：git的一个配置可以保存http的密码,在家拉代码的时候有用.
+    git config --global credential.helper store
+
+
+前端新建项目时候目录结构
+sdk
+src
+	app
+		lol
+			main.js
+			index.html
+			index_build.html
+			index_pub.html
+		css
+			lol
+				main.css
+				reset.cs
+				style.css
+		images
+			lol
+				logo.png
+				bg.png
+
+
+1.更改".soy"类的模板文件之后，cygw的操作方法：
+	dos2unix.exe  ./soy2js.sh(目录)
+	./soy2js.sh  lg/star/template/tasktemplate.soy(目录)
+
+
+2.更新deps.js的方法
+	有sdk的情况    node sdk/deps.js
+	无sdk的情况    ./depswriter.js(目录)
+
+
+3.项目打包方法
+	有sdk的情况,一般是src下方的文件打包       
+	sdk/compile -jquery peopleslive.h5
+	(看main.js的目录，-jquey如果项目中用到就加，没有就不用加)
+
+	无sdk的情况,一般是房间页面的打包     
+	./star-live-build.sh （dos2unix.exe   ./star-live-build.sh）
+
+	多数情况的打包,例如列表页的js打包   
+	./compiler.js  plu.pages.livelist(看main.js的目录)
+
+	特殊情况打包css,例如列表页的css打包    
+	./compiler.js  plu.livelist
+
+	lpl房间页打包  进入bin目录运行 node compile.js 会自动生成build文件build_html文件
+
+
+4.git插入说明文字
+ 	用i进入vim模式，可以用键盘的↑↓键或者回车插入说明，
+ 	输完之后按esc键输入:x就可以了
+
+5.git的常用命令
+	创建SSH Key，在用户主目录下，看看有没有.ssh目录，有没有id_rsa和
+	id_rsa.pub这两个文件，如果没有的话，打开命令行，输入如下命令：
+	ssh-keygen  -t rsa –C "youremail@example.com"  如果有可以忽略此步骤
+
+	id_rsa是私钥，id_rsa.pub是公钥
+	复制id_rsa.pub里面的内容，在http://git.corp.plu.cn/profile/keys里面增加
+
+	git clone xxxxxxxxxxxxx    		
+	克隆项目
+
+	git add                   		
+	把修改的文件添加到暂存区域
+
+	git commit -m '提交的说明' 		
+	把文件提交到仓库
+
+	git pull  						
+	拉取远程项目
+
+	git push						
+	提交文件到远程
+
+	git status 						
+	查看状态看是否还有文件未提交
+
+	git diff xxxx 					
+	查看具体修改了什么
+
+	git log							
+	查看提交的日志
+
+	git reset --hard HEAD^			
+	回退到上个版本
+
+	git reset --hard 版本号			
+	回退到某个版本
+
+	rm	xxx							
+	删掉某个文件
+
+	git checkout xxxx  				
+	没有commit之前可以恢复之前删掉的文件
+
+	git checkout -b hua  			
+	创建并切换到新的分支hua，相当于git branch hua和git checkout 
+
+	git branch						
+	查看当前的分支
+
+	git merge 分支名称				
+	merge分支到当前的分支中去
+
+	git submodule init  			
+	初始化子模块
+
+	git submodule update			
+	更新子模块
+
+6.goog的常用方法
+  <1> goog.dom
+	获取id=a的Dom元素						
+	goog.dom.getElement('a');
+
+	获取唯一class=b的Dom元素 				
+	goog.dom.getElementByClass('b');
+
+	获取class=c的dom元素的集合(数组形式)	
+	goog.dom.getElementsByClass('c');
+
+	获取id=a下面的class=c的元素  			
+	goog.dom.getElementByClass('c', goog.dom.getElement('a'));
+
+	获取ele的children,return数组			
+	goog.dom.getChildren(ele);
+
+	获取ele下面的第一个元素					
+	goog.dom.getFirstElementChild(ele);
+
+	获取ele下面的最后一个元素				
+	goog.dom.getLastElementChild(ele);
+
+	获取ele同级的下一个元素,没有返回null	
+	goog.dom.getNextElementSibling(ele);
+
+	获取ele同级的上一个元素,没有返回null	
+	goog.dom.getPreviousElementSibling(ele);
+
+	获取b元素的父亲元素						
+	goog.dom.getParentElement(b);
+
+	获取窗口的大小							
+	goog.dom.getViewPortSize(window).width/height;
+
+	获取元素ele里面的内容					
+	goog.dom.getTextContent(ele);
+
+	获取元素ele里面内容的长度				
+	goog.dom.getNodeTextLength(ele);
+
+
+	设置元素ele的内容为xxxx					
+	goog.dom.setTextContent(ele, 'xxxx');
+
+	设置元素的行内样式						
+	goog.dom.setProperties(ele, {'class':'dd'});
+	goog.dom.setProperties(ele, {'style':'color:blue;background:red;'});
+
+	设置元素ele的属性或者自定义的属性		
+	ele.setAttribute('title', 'xxxx');
+
+
+	创建class为e的div元素					
+	goog.dom.createDom('div', 'e');
+
+	创建class为e,d的span元素				
+	goog.dom.createDom('span', ['e', 'd']);
+
+	创建一个p元素							
+	goog.dom.createElement('p');
+
+	创建一个class为aa内容为“是我”的div		
+	goog.dom.createDom('div', {'class': 'aa'}, '是我');
+
+	添加a到元素b里面						
+	goog.dom.append(b, a);// goog.dom.appendChild(b, a);
+	a可以是一个新的dom元素，也可以是字符串，也可以是一个数组
+
+	把a元素添加到b的前面和b同级在b的上面    
+	goog.dom.insertSiblingBefore(a, b);
+
+	把a元素添加到b的后面和b同级再b的后面    
+	goog.dom.insertSiblingAfter(a, b);
+
+	把a元素添加到父级b里面的第几位			
+	goog.dom.insertChildAt(b, a, 0);
+
+	把a元素替换成新的b元素					
+	goog.dom.replaceNode(newb, olda);
+
+	摧毁ele元素标签，不摧毁它的内容			
+	goog.dom.flattenElement(ele);
+
+	删除元素f								
+	f.remove(); // ele.removeChild(f);// goog.dom.removeNode(f);
+
+	判断a元素里面是否包含b					
+	goog.dom.contains(a, b);
+
+
+  <2> goog.style
+
+	获取ele元素的宽高包含padding/border		
+	goog.style.getSize(ele).width/height;
+
+	获取ele元素的宽高不包含padding/border	
+	goog.style.getComputedStyle(ele, 'width/height');
+
+	获取ele元素的margin值					
+	goog.style.getMarginBox(ele).top/right/bottom/left;
+
+	获取ele元素的padding值					
+	goog.style.getPaddingBox(ele).top/right/bottom/left;
+
+	设置元素的高度和宽度					
+	goog.style.setHeight(ele, 100)，goog.style.setWidth(ele, 100)
+
+
+  <3> goog.ui.Dialog
+
+	创建一个dialog弹窗						
+	var dialog = new goog.ui.Dialog();
+
+	设置dialog弹窗的标题					
+	dialog.setTitle('xxxxxx');
+
+	设置dialog弹窗的内容为					
+	dialog.setContent('xxxxxx');
+
+	设置dialog弹窗是否显示					
+	dialog.setVisible(true/false);
+
+	设置close按钮是否显示					
+	dialog.setHasTitleCloseButton(true/false)
+
+
+  <4> goog.fx.css3
+
+	设置ele元素2秒完成显示过程				
+	goog.fx.css3.fadeIn(ele, 2).play();//fadeOut
+
+
+	<5> goog.fx.dom
+
+	var animate = new goog.fx.dom.FadeIn()/FadeOut/FadeInAndShow/FadeOutAndHide;
+	animate.play();
+
+	/**
+		ele 动画元素
+		[0, 0] ele开始的位置
+		[100, 100] ele结束的位置
+		800 动画运动的时间
+		0.6 速率（0~1之间的数字）
+	*/
+	var animate = new goog.fx.dom.Slide(ele, [0, 0], [100, 100], 800, 0.6); 
+	animate.play();
+
+
+	/**
+		ele 动画元素
+		[300, 700] ele结束的位置
+		2000 动画运动的时间
+		0.7 速率（0~1之间的数字）
+	*/
+	var animate2 = new goog.fx.dom.SlideFrom(ele, [300, 700], 2000, 0.7); 
+	animate2.play();
+
+
+	/**
+		ele 动画元素
+		[120, 120] ele原始的大小
+		[200, 200] ele结束的大小
+		1000 动画运动的时间
+		0.7 速率（0~1之间的数字）
+	*/
+	var animate3 = new goog.fx.dom.Resize(ele, [138, 120], [200, 200], 1000, 0.7);
+	animate3.play();
+
+
+	/**
+		ele 动画元素
+		200 ele原始的高度
+		300 ele结束的高度
+		800 动画运动的时间
+		0.6 速率（0~1之间的数字）
+	*/
+	var animate4 = new goog.fx.dom.ResizeHeight(ele, 200, 300, 800, 0.6); 
+	animate4.play();
+
+	同理goog.fx.dom.ResizeWidth
+
+	var anim_ = new goog.fx.dom.FadeOutAndHide(ele, 500);
+	this.getHandler().listen(anim_, goog.fx.Transition.EventType.END, function () {
+		//处理结束后的需求
+	}, null, this);
+	this.anim_.play();	
+
+
+
+7. css3
+	-webkit-animation: myfirst 5s linear 2s infinite alternate;
+
+
+8.关于代理问题
+	1.设置host形式
+		比如线上首页地址是http://star.longzhu.com
+		host的设置是 127.0.0.1  star.longzhu.com
+
+
+	2.利用google设置代理(打开qqgame客户端的时候会比较慢，往往需要先关闭，进去客户端之后再打开代理)
+	打开google浏览器的设置--显示高级设置--网络下方的更改代理服务器设置
+
+
+	在sdk/proton-proxy的文件夹下方
+	<1> 如果没有paths.js就新建一个paths.js
+	<2> 打开path.js里面的格式如下，对象的形式：
+		{
+	    	'http://star.longzhu.com/.*/qqgameapp': '../../lg/star/live/index.html',   //  .*是匹配任意字符
+	    	'http://v.longzhu.com/qqgame': '../../src/app/video/video.html'		 //   前面是线上地址，后面是自己本地的文件路径
+		}
+	<3> 利用Cygw到sdk/proton-proxy下方，并运行 node server.js 
+		或者直接运行server.bat文件
+		这时候浏览器打开http://star.longzhu.com/lpl/qqgameapp/，绿色代表是替换掉的文件，白色是没有被替换的
+
+
+	3.vorlon.js远程调试，测试工具，不支持IE
+
+	首先clone前端的远程项目 git@git.corp.plu.cn:frontend/vorlon.git
+	用Cygw打开到vorlon项目下方，运行命令./server可以看到端口
+	浏览器里面打开http://127.0.0.1:1337/
+	得到<script src="http://127.0.0.1:1337/vorlon.js"></script>
+	在需要调试的页面的最上方加载这段js
+
+
+
+9.关于单元测试
+
+例如 lg.star.redenvelope.ui.RedEnvelopeList(红包队列数据)
+首先在需要进行单元测试的js文件中，新建：
+redenvelopelist_test.js和redenvelopelist_test.html
+
+<1> 在redenvelopelist_test.html中加载base.js和deps.js
+并在此后面require进来你的redenvelopelist_test.js 如下：
+<script>
+    goog.require('lg.star.redenvelope.ui.RedEnvelopeListTest');
+</script>
+
+
+<2> 在redenvelopelist_test.js中
+goog.provide('lg.star.redenvelope.ui.RedEnvelopeListTest');
+goog.setTestOnly('lg.star.redenvelope.ui.RedEnvelopeListTest');
+//setTestOnly表示只用于测试，以防止其他地方调用
+
+goog.require('goog.testing.jsunit');
+goog.require('lg.star.redenvelope.ui.RedEnvelopeList');
+
+function setUp() { 
+}
+
+function tearDown() {
+}
+
+function testTicket() { //测试自己的方法时前面加test后面是自己的方法名字
+	assertEquals(a, b); //测试a和b是否相等
+	assertTrue(boolean);
+}
+
+//关于异步的单元测试
+function testLoadThen() {
+  var api = new pt.api.Api('http://api.longzhu.com/toto');
+  var data = {a: 10};
+  var res = {res: 100};
+
+  api.loadData = function(reply, error, opt_data) {
+    assertEquals(opt_data, data);
+    reply(res);
+  };
+  api.load(data).then(function(json) {
+    assertEquals(json, res);
+    asyncTestCase.continueTesting(); //继续执行接下来的代码
+  });
+  asyncTestCase.waitForAsync(); //测试异步的程序
+}
+
+
+
+
