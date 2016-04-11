@@ -32,53 +32,8 @@
                 </div>
                 <!-- end user info -->
                 <!-- start video -->
-                <div class="video_live">
-                    <video class="video_area" controls preload="none" width="100%" height="240" poster="./images/video1.jpg" webkit-playsinline>
-                        <source src="./cars.mp4">
-                    </video>
-                </div>
-                <!-- end video -->
-                <!-- start video info -->
-                <div class="video_info">
-                    <div class="video_title">Maketing Shop</div>
-                    <div class="video_content">Well Howtolang to you will you go Howtolang to you will Howtolang to you will Howtolang to you will</div>
-                </div>
-                <!-- end video info -->
-                <!-- star handle info -->
-                <div class="handle_info" videoId="1234">
-                    <div class="handle_list share_num">
-                        <i class="vido_icon share"></i>
-                        <span class="video_count">25252</span>
-                    </div>
-                    <div class="handle_list commit_num">
-                        <i class="vido_icon commit"></i>
-                        <span class="video_count">36363</span>
-                    </div>
-                    <div class="handle_list good_num">
-                        <i class="vido_icon good"></i>
-                        <i class="vido_icon plus_icon"></i>
-                        <span class="video_count">585585</span>
-                    </div>
-                </div>
-                <!-- end handle info -->
-                <!-- line -->
-                <div class="line"></div>
-            </div>
-            <!-- end video list -->
-            <!-- start video list -->
-            <div class="video_list">
-                <!-- start user info -->
-                <div class="user_info">
-                    <div class="user_face"><img src="./images/avaster.jpg" alt="Lan Lan"></div>
-                    <div class="user_dec">
-                        <div class="user_name">Chen Lan Hsin</div>
-                        <div class="user_address">Taiwan</div>
-                    </div>
-                </div>
-                <!-- end user info -->
-                <!-- start video -->
-                <div class="video_live">
-                    <video class="video_area" controls preload="none" width="100%" height="240" poster="./images/video1.jpg" webkit-playsinline>
+                <div class="video_live" videoId="1234">
+                    <video class="video_area" controls preload="none" width="100%" height="214" poster="./images/video1.jpg" webkit-playsinline>
                         <source src="./cars.mp4">
                     </video>
                 </div>
@@ -122,8 +77,8 @@
                 </div>
                 <!-- end user info -->
                 <!-- start video -->
-                <div class="video_live">
-                    <video class="video_area" controls preload="none" width="100%" height="240" poster="./images/video1.jpg" webkit-playsinline>
+                <div class="video_live" videoId="5678">
+                    <video class="video_area" controls preload="none" width="100%" height="214" poster="./images/video1.jpg" webkit-playsinline>
                         <source src="./cars.mp4">
                     </video>
                 </div>
@@ -155,6 +110,55 @@
                 <div class="line"></div>
             </div>
             <!-- end video list -->
+            <!-- start video list -->
+            <div class="video_list">
+                <!-- start user info -->
+                <div class="user_info">
+                    <div class="user_face"><img src="./images/avaster.jpg" alt="Lan Lan"></div>
+                    <div class="user_dec">
+                        <div class="user_name">Chen Lan Hsin</div>
+                        <div class="user_address">Taiwan</div>
+                    </div>
+                </div>
+                <!-- end user info -->
+                <!-- start video -->
+                <div class="video_live" videoId="101112">
+                    <video class="video_area" controls preload="none" width="100%" height="214" poster="./images/video1.jpg" webkit-playsinline>
+                        <source src="./cars.mp4">
+                    </video>
+                </div>
+                <!-- end video -->
+                <!-- start video info -->
+                <div class="video_info">
+                    <div class="video_title">Maketing Shop</div>
+                    <div class="video_content">Well Howtolang to you will you go Howtolang to you will Howtolang to you will Howtolang to you will</div>
+                </div>
+                <!-- end video info -->
+                <!-- star handle info -->
+                <div class="handle_info">
+                    <div class="handle_list share_num">
+                        <i class="vido_icon share"></i>
+                        <span class="video_count">25252</span>
+                    </div>
+                    <div class="handle_list commit_num">
+                        <i class="vido_icon commit"></i>
+                        <span class="video_count">36363</span>
+                    </div>
+                    <div class="handle_list good_num">
+                        <i class="vido_icon good"></i>
+                        <i class="vido_icon plus_icon"></i>
+                        <span class="video_count">585585</span>
+                    </div>
+                </div>
+                <!-- end handle info -->
+                <!-- line -->
+                <div class="line"></div>
+            </div>
+            <!-- end video list -->
+
+            <!-- <div class="pullUp">
+                <span class="pullUpIcon"></span><span class="pullUpLabel"></span>
+            </div> -->
         </div>
     </div>
     <div class="comment" id="comment_dialog">
@@ -234,7 +238,7 @@
                         </div>
                     </li>
                 </ul>
-                <div id="pullUp">
+                <div class="pullUp">
                     <span class="pullUpIcon"></span><span class="pullUpLabel"></span>
                 </div>
             </div>
@@ -246,6 +250,7 @@
     </div>
     <script src="./js/jquery1.7.2.min.js"></script>
     <script src="./js/iscroll.js"></script>
+    <script src="./js/jquery.lazyload.min.js"></script>
     <script src="./js/video.js"></script>
 </body>
 

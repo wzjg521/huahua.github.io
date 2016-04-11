@@ -1,4 +1,5 @@
 $(function() {
+    var videoEle = $('.video_live');
     var goodEle = $('.good_num');
     var commitNum = $('.commit_num');
     var commit_dialog = $('#comment_dialog');
@@ -11,7 +12,17 @@ $(function() {
     }, false);
     var bodyScroll = new iScroll('page_scroll');
 
+ // videoEle.on('click', function() {
+ //    var video = $(this).find('video').get(0);
+ //    if(video.paused) {
+ //       video.play();
+ //    }else {
+ //       video.pause();
+ //    }
+ //    return false;
+ // };
     
+
 
     goodEle.click(function() {
         // $.ajax({
@@ -38,7 +49,7 @@ $(function() {
     hideCommit.click(function() {
         myScroll.destroy();
         bodyScroll = new iScroll('page_scroll');
-        
+
         commit_dialog.hide();
     })
     backCommit.click(function() {
@@ -51,8 +62,8 @@ $(function() {
     function pullUpAction() {
         generatedCount++;
         setTimeout(function() {
-            var el, li, i;
-            el = $('#scrolist');
+            // var el, li, i;
+            // el = $('#scrolist');
             // $.ajax({
             //    type: "GET",
             //    url: "LoadMore.ashx",
@@ -67,40 +78,79 @@ $(function() {
             //     })
             //    }
             // });
-            for (var i = 0; i < 6; i++) {
-                li = document.createElement('li');
-                li.innerHTML = 'huahua' + i;
-                el.append(li);
-            };
+            // for (var i = 0; i < 6; i++) {
+            //     li = document.createElement('li');
+            //     li.innerHTML = 'huahua' + i;
+            //     el.append(li);
+            // };
+            var data = {
+                'total': 20,
+                'list': [{
+                    'avaster': './images/avaster.jpg',
+                    'name': 'huahua',
+                    'time': '03-10 10:23',
+                    'content': '评论的内容a'
+                }, {
+                    'avaster': './images/avaster.jpg',
+                    'name': 'huahua',
+                    'time': '03-10 10:23',
+                    'content': '评论的内容b'
+                }, {
+                    'avaster': './images/avaster.jpg',
+                    'name': 'huahua',
+                    'time': '03-10 10:23',
+                    'content': '评论的内容c'
+                }, {
+                    'avaster': './images/avaster.jpg',
+                    'name': 'huahua',
+                    'time': '03-10 10:23',
+                    'content': '评论的内容d'
+                }, {
+                    'avaster': './images/avaster.jpg',
+                    'name': 'huahua',
+                    'time': '03-10 10:23',
+                    'content': '评论的内容e'
+                }, {
+                    'avaster': './images/avaster.jpg',
+                    'name': 'huahua',
+                    'time': '03-10 10:23',
+                    'content': '评论的内容f'
+                }]
+            }
 
+
+            
+            $.each(data.list, function(index, item) {
+                commitList.append(createCommitDom(item));
+            })
             myScroll.refresh();
         }, 1000);
     }
 
     function loaded() {
-        pullUpEl = document.getElementById('pullUp');
+        pullUpEl = $('#wraper').find('.pullUp').get(0);
         pullUpOffset = pullUpEl.offsetHeight;
         myScroll = new iScroll('wraper', {
             onRefresh: function() {
                 if (pullUpEl.className.match('loading')) {
-                    pullUpEl.className = '';
+                    pullUpEl.className = 'pullUp';
                     pullUpEl.querySelector('.pullUpLabel').innerHTML = '上拉加载更多...';
                 }
             },
             onScrollMove: function() {
                 if (this.y < (this.maxScrollY - 5) && !pullUpEl.className.match('flip')) {
-                    pullUpEl.className = 'flip';
+                    pullUpEl.className = 'pullUp flip';
                     pullUpEl.querySelector('.pullUpLabel').innerHTML = '松开加载...';
                     this.maxScrollY = this.maxScrollY;
                 } else if (this.y > (this.maxScrollY + 5) && pullUpEl.className.match('flip')) {
-                    pullUpEl.className = '';
+                    pullUpEl.className = 'pullUp';
                     pullUpEl.querySelector('.pullUpLabel').innerHTML = '上拉加载更多...';
                     this.maxScrollY = pullUpOffset;
                 }
             },
             onScrollEnd: function() {
                 if (pullUpEl.className.match('flip')) {
-                    pullUpEl.className = 'loading';
+                    pullUpEl.className = 'pullUp loading';
                     pullUpEl.querySelector('.pullUpLabel').innerHTML = '加载中...';
                     pullUpAction(); // Execute custom function (ajax call?)
                 }
@@ -131,60 +181,52 @@ $(function() {
         //    }
         // });
         var data = {
-            'total' : 20,
-            'list' : [{
-                    'avaster':'./images/avaster.jpg',
-                    'name':'huahua',
-                    'time':'03-10 10:23',
-                    'content':'评论的内容11'
-                },
-                {
-                    'avaster':'./images/avaster.jpg',
-                    'name':'huahua',
-                    'time':'03-10 10:23',
-                    'content':'评论的内容22'
-                },
-                {
-                    'avaster':'./images/avaster.jpg',
-                    'name':'huahua',
-                    'time':'03-10 10:23',
-                    'content':'评论的内容33'
-                },
-                {
-                    'avaster':'./images/avaster.jpg',
-                    'name':'huahua',
-                    'time':'03-10 10:23',
-                    'content':'评论的内容44'
-                },
-                {
-                    'avaster':'./images/avaster.jpg',
-                    'name':'huahua',
-                    'time':'03-10 10:23',
-                    'content':'评论的内容55'
-                },
-                {
-                    'avaster':'./images/avaster.jpg',
-                    'name':'huahua',
-                    'time':'03-10 10:23',
-                    'content':'评论的内容66'
-                }
-            ]
+            'total': 20,
+            'list': [{
+                'avaster': './images/avaster.jpg',
+                'name': 'huahua',
+                'time': '03-10 10:23',
+                'content': '评论的内容11'
+            }, {
+                'avaster': './images/avaster.jpg',
+                'name': 'huahua',
+                'time': '03-10 10:23',
+                'content': '评论的内容22'
+            }, {
+                'avaster': './images/avaster.jpg',
+                'name': 'huahua',
+                'time': '03-10 10:23',
+                'content': '评论的内容33'
+            }, {
+                'avaster': './images/avaster.jpg',
+                'name': 'huahua',
+                'time': '03-10 10:23',
+                'content': '评论的内容44'
+            }, {
+                'avaster': './images/avaster.jpg',
+                'name': 'huahua',
+                'time': '03-10 10:23',
+                'content': '评论的内容55'
+            }, {
+                'avaster': './images/avaster.jpg',
+                'name': 'huahua',
+                'time': '03-10 10:23',
+                'content': '评论的内容66'
+            }]
         }
-        for (i in data) {
-            commitList.html('loding......');
-           $.each(data.list, function(index, item) {
-                commitList.append(createDom(item));
-            })
-        }
+        $.each(data.list, function(index, item) {
+            commitList.append(createCommitDom(item));
+        })
     }
-    function createDom (data) {
+
+    function createCommitDom(data) {
         var liDom = $('<li>'),
-            userFaceDom = $('<div>', {'class':'user_face'}),
-            avasterDom = $('<img>', {'src':data.avaster, 'alt':data.name}),
-            commentDom = $('<div>', {'class':'comment_content'}),
-            userNameDom = $('<div>', {'class':'user_name'}),
-            commentTimeDom = $('<div>', {'class':'comment_time'}),
-            userCommentDom = $('<div>', {'class':'user_comment'});
+            userFaceDom = $('<div>', { 'class': 'user_face' }),
+            avasterDom = $('<img>', { 'src': data.avaster, 'alt': data.name }),
+            commentDom = $('<div>', { 'class': 'comment_content' }),
+            userNameDom = $('<div>', { 'class': 'user_name' }),
+            commentTimeDom = $('<div>', { 'class': 'comment_time' }),
+            userCommentDom = $('<div>', { 'class': 'user_comment' });
         userFaceDom.html(avasterDom);
         userNameDom.html(data.name);
         commentTimeDom.html(data.time);
