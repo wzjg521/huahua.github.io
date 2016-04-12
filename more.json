@@ -8,7 +8,10 @@
 		"videoImg" : "./images/video1.jpg",
 		"videoSource" : "./cars.mp4",
 		"videoTitle" : "My package lost",
-		"videoDec" : "Well Howtolang to you will you go Howtolang to you will Howtolang to you will Howtolang to you will"
+		"videoDec" : "Well Howtolang to you will you go Howtolang to you will Howtolang to you will Howtolang to you will",
+		"shareCount":2578,
+		"commentCount":645,
+		"lickCount":3120
 	},
 	{
 		"avatar" : "./images/avaster.jpg",
@@ -18,7 +21,23 @@
 		"videoImg" : "./images/video1.jpg",
 		"videoSource" : "./cars.mp4",
 		"videoTitle" : "My package lost",
-		"videoDec" : "Well Howtolang to you will you go Howtolang to you will Howtolang to you will Howtolang to you will"
+		"videoDec" : "Well Howtolang to you will you go Howtolang to you will Howtolang to you will Howtolang to you will",
+		"shareCount":630,
+		"commentCount":1423,
+		"lickCount":899
+	},
+	{
+		"avatar" : "./images/avaster.jpg",
+		"username" : "Hua Hua2",
+		"address" : "xiangGang2",
+		"videoId" : 11,
+		"videoImg" : "./images/video1.jpg",
+		"videoSource" : "./cars.mp4",
+		"videoTitle" : "My package lost",
+		"videoDec" : "Well Howtolang to you will you go Howtolang to you will Howtolang to you will Howtolang to you will",
+		"shareCount":3268,
+		"commentCount":1120,
+		"lickCount":491
 	},
 	{
 		"avatar" : "./images/avaster.jpg",
@@ -28,6 +47,9 @@
 		"videoImg" : "./images/video1.jpg",
 		"videoSource" : "./cars.mp4",
 		"videoTitle" : "My package lost",
-		"videoDec" : "Well Howtolang to you will you go Howtolang to you will Howtolang to you will Howtolang to you will"
+		"videoDec" : "Well Howtolang to you will you go Howtolang to you will Howtolang to you will Howtolang to you will",
+		"shareCount":5280,
+		"commentCount":4688,
+		"lickCount":123
 	}]
 }
