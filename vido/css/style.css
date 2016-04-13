@@ -434,6 +434,9 @@
 .page_detail .dropload-down{
 	margin-bottom: 60px;
 }
+.page_detail .video_live{
+	height: 180px;
+}
 .send{
 	display: block;
 	position: absolute;
