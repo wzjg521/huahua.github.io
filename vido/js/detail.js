@@ -38,12 +38,12 @@ $(function() {
     }
 
     //在列表的头部增加新的评论
-    function addComment(data) {
+    function addComment(comment) {
         var data = {
             "avatar" : "./images/avaster.jpg",
             "username" : "huahua",
             "commentTime" : "2016-4-2 10:30",
-            "commentContent" : "评论评论12345"
+            "commentContent" : comment
         }
         var newHtml = createListDom(data);
         $('.list_con').prepend(newHtml);
