@@ -42,8 +42,8 @@ $(function() {
         var data = {
             "avatar" : "./images/avaster.jpg",
             "username" : "huahua",
-            "address" : "2016-4-2 10:30",
-            "videoDec" : "评论评论12345"
+            "commentTime" : "2016-4-2 10:30",
+            "commentContent" : "评论评论12345"
         }
         var newHtml = createListDom(data);
         $('.list_con').prepend(newHtml);
@@ -55,7 +55,7 @@ $(function() {
         $.ajax({
             type: 'GET',
             data: {page:pageIndex,videoid:1234},
-            url: 'http://wzjg521.github.io/more.json',
+            url: 'http://wzjg521.github.io/json/more2.json',
             dataType: 'json',
             success: function(data){
             	if(data) {
@@ -87,8 +87,8 @@ $(function() {
             		+'<div class="user_face"><img src="'+ data.avatar +'" alt="Lan Lan"></div>'
             		+'<div class="comment_content">'
             			+'<div class="user_name">'+ data.username +'</div>'
-            			+'<div class="comment_time">'+ data.address +'</div>'
-                        +'<div class="user_comment">'+ data.videoDec +'</div>'
+            			+'<div class="comment_time">'+ data.commentTime +'</div>'
+                        +'<div class="user_comment">'+ data.commentContent +'</div>'
             		+'</div>'
                 +'</li>';
 

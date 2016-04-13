@@ -84,7 +84,7 @@ $(function() {
         $.ajax({
             type: 'GET',
             data: {page:pageIndex},
-            url: 'http://wzjg521.github.io/more.json',
+            url: 'http://wzjg521.github.io/json/more3.json',
             dataType: 'json',
             success: function(data){
             	if(data) {
@@ -133,16 +133,16 @@ $(function() {
         	+' <div class="handle_info" videoId="'+ data.videoId +'">'
         		+'<div class="handle_list share_num">'
         			+'<i class="vido_icon share"></i>'
-        			+'<span class="video_count">25252</span>'
+        			+'<span class="video_count">'+ data.shareCount +'</span>'        
             	+'</div>'
         		+'<div class="handle_list commit_num">'
         			+'<i class="vido_icon commit"></i>'
-        			+'<span class="video_count">36363</span>'
+        			+'<span class="video_count">'+ data.commentCount +'</span>'
         		+'</div>'
         		+'<div class="handle_list good_num">'
         			+'<i class="vido_icon good"></i>'
         			+'<i class="vido_icon plus_icon"></i>'
-        			+'<span class="video_count">585585</span>'
+        			+'<span class="video_count">'+ data.lickCount +'</span>'
         		+'</div>'
         	+'</div>'
         	+'<div class="line"></div>'
