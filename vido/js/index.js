@@ -11,10 +11,22 @@ $(function() {
 	});
 
 	//点赞事件
-	$(document.body).bind("touchstart", function(e) {
+	$(document.body).bind("touchend", function(e) {
+        clickComment(e);
 		shareAt(e);
 		clickLike(e);
+        if($('#share').css('display') == 'block') {
+            cancelLike(e);
+        }
 	});
+
+    //评论功能跳转
+    function clickComment(e) {
+        var parentDom = e.target.parentNode;
+        if(parentDom.className == "handle_list commit_num") {
+            window.location.href = './detail.html';
+        }
+    }
 
 	//分享功能
 	function shareAt(e) {
@@ -22,9 +34,29 @@ $(function() {
     	if(parentDom.className == "handle_list share_num") {
 	    	var shareDialog = $('#share');
 	    	shareDialog.show();
-	    	shareDialog.addClass('show_dialog');
+            setTimeout(function() {
+                shareDialog.addClass('show_dialog');
+            }, 50);
+	    	
 	    }
 	}
+    //取消分享
+    function cancelLike(e) {
+        var shareDialog = $('#share');
+        if(e.target.className == "share_btn") {
+            shareDialog.removeClass('show_dialog');
+            setTimeout(function() {
+                shareDialog.hide();
+            }, 200);
+            
+        } else if($(e.target).parents('#share').length == 0 && 
+            e.target.parentNode.className != "handle_list share_num" ) {
+            shareDialog.removeClass('show_dialog');
+            setTimeout(function() {
+                shareDialog.hide();
+            }, 200);
+        }
+    }
 
     //点赞功能函数
     function clickLike(e) {
@@ -56,18 +88,21 @@ $(function() {
             dataType: 'json',
             success: function(data){
             	if(data) {
-            		var result = '';
-            		$.each(data.list,function(index,item) {
-						result += createListDom(item);
-					});
-            		if(pageIndex == 0) {
-            			$('.video_box').html(result);
-            		} else {
-            			$('.video_box').append(result);
-            		}
-					
+                    if(data.total + 1 == pageIndex) {
+                        dropload.noData(true);
+                    } else {
+                        var result = '';
+                        $.each(data.list,function(index,item) {
+                            result += createListDom(item);
+                        });
+                        if(pageIndex == 0) {
+                            $('.video_box').html(result);
+                        } else {
+                            $('.video_box').append(result);
+                        }
+                        pageIndex++;
+                    }
         			dropload.resetload();
-        			pageIndex++;
             	} else {
             		alert('哎呀，网络出错了！');
             	}

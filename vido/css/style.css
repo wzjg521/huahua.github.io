@@ -6,7 +6,6 @@
     height: 100%;
     display: -webkit-box;
     display: -webkit-flex;
-    display: -ms-flexbox;
     display: flex;
     -ms-flex-direction:column;
     -webkit-box-orient:vertical;
@@ -234,9 +233,9 @@
 	width:100%;
 	height: 200px;
 	background: #fff;
-	transition:all 2s;
-	transform: translate(0,-200px);
-	-webkit-transform: translate(0,-200px);
+	transition:all .6s;
+	transform: translate(0,200px);
+	-webkit-transform: translate(0,200px);
 }
 .show_dialog .share_box{
 	transform: translate(0,0);
@@ -260,6 +259,7 @@
 	text-align: center;
 	border-top: 1px solid #ddd;
 }
+
 .share_dialog li{
 	float: left;
     width: 50%;
@@ -295,60 +295,81 @@
     text-align: center;
     float: left;
     margin: 14px 15px 14px 20px;
+    background-image: url(../images/share_icon.png);
 }
-.share_dialog .icon-wb {
-    background: #4BB4EB;
+.share_dialog .icon-twitter {
+    background-color: #4BB4EB;
+    background-position: -4px -52px;
 }
-.share_dialog .icon-qq {
-    background: #538ff1;
+.share_dialog .icon-facebook {
+    background-color: #538ff1;
+    background-position: -1px -108px;
 }
 .share_dialog .icon-qz {
-    background: #F7BF36;
+    background-color: #F7BF36;
+    background-position: -1px 4px;
 }
 .share_dialog .icon-sina {
-    background: #EB5648;
+    background-color: #EB5648;
+    background-position: -1px -160px;
 }
 
 
-
-
-
-
-
+.page_detail{
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: flex;
+    -ms-flex-direction:column;
+    -webkit-box-orient:vertical;
+    box-orient:vertical;
+    -webkit-flex-direction:column;
+    flex-direction:column;
+    background: #fff;
+}
 
 .comment{
-	position: fixed;
-	bottom:0;
-	left:0;
 	width: 100%;
-	height: 360px;
-	background: #fff;
-	box-sizing:border-box;
-	border:5px solid #1fbba5;
-	display: none;
-	overflow: hidden;
-	z-index: 999999;
+	background: #fff;	
+	-webkit-box-flex:1;
+	overflow-y: scroll;
 }
-.comment_back{
-	width: 100%;
-	height: 44px;
-	line-height: 44px;
-	text-indent: 10px;
-	color:#fff;
-	font-size: 16px;
-	background: #1fbba5;
-}
-.comment_hide{
+.page_detail h3{
 	height: 40px;
 	line-height: 40px;
-	font-size: 16px;
-	text-indent: 12px;
+	padding:0 14px;
+	position: relative;
+}
+.red_line{
+	position: absolute;
+	bottom:0;
+	left:10px;
+	display: block;
+	width: 44px;
+	height: 4px;
+	border-bottom: 1px solid red;
+
 }
 .comment_list{
-	height: 222px;
-	position: relative;
-	overflow: hidden;
+	-webkit-box-flex: 1;
+    -webkit-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    background-color: #fff;
+    overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;
+	
+	
 }
+.list_con{
+	padding:0 10px;
+	display: block;
+}
+
 .comment_list li{
 	padding: 6px 0;
 	border-bottom: 1px solid #ddd;
@@ -381,28 +402,43 @@
 .scroll_con{
 	width:100%;
 }
-.list_con{
-	padding:0 10px;
-}
+
 .add_comment{
-	padding: 0 0 5px;
 	position: absolute;
   	width: 100%;
   	left:0;
   	bottom:0;
+  	height: 60px;
+  	border-top: 1px solid #ddd;
+  	background: #f2f2f2;
 }
 .add_comment input{
 	width: 100%;
 	height: 36px;
 	text-indent: 8px;
 	color:#444;
-	background: #f4f4f4;
+	background: #fff;
 	border:1px solid #ddd;
-	border-top:none;
-	border-radius: 0;
+	border-radius: 6px;
+	box-shadow: none;
 }
 .add_comment .arrow_right{
 	position: absolute;
-	bottom:16px;
-	right: 24px;
+	top:12px;
+	right: 20px;
+}
+.add_comment .comment_box{
+	padding: 11px;
+	position: relative;
+}
+.dropload-down{
+	margin-bottom: 60px;
+}
+.send{
+	display: block;
+	position: absolute;
+	top:12px;
+	right:10px;
+	width: 46px;
+	height: 36px;
 }
