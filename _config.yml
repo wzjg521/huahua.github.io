@@ -1,0 +1,8 @@
+title: Wzjg521.GitHub.io
+description: website
+google_analytics: 
+show_downloads: true
+theme: jekyll-theme-leap-day
+
+gems:
+  - jekyll-mentions
